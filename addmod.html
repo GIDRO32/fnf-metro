@@ -10,11 +10,60 @@
             color: white;
             font-family: Arial, sans-serif;
         }
+        .container {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
-    <h1>Add a New Mod</h1>
-    <p>Here you can add new mods to the fnf-metro.</p>
-    <!-- Add your form or content here -->
+    <div class="container">
+        <h1>Add a New Mod</h1>
+        <label for="modImage">Mod Image (16:9 aspect ratio required):</label>
+        <input type="file" id="modImage" name="modImage" accept="image/*" onchange="validateImageAspectRatio(this)">
+
+        <label for="modName">Mod Name:</label>
+        <input type="text" id="modName" name="modName">
+
+        <label for="modUrl">Mod URL:</label>
+        <input type="url" id="modUrl" name="modUrl">
+
+        <!-- Placeholder for more features and submit button -->
+    </div>
+
+    <script>
+        function validateImageAspectRatio(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const aspectRatio = img.width / img.height;
+                        // Check if aspect ratio is close to 16:9 (allowing some margin for error)
+                        if (aspectRatio > 1.77 && aspectRatio < 1.79) {
+                            alert("Image aspect ratio is valid.");
+                        } else {
+                            alert("Image does not have a 16:9 aspect ratio.");
+                            input.value = ''; // Clear the input if aspect ratio is not valid
+                        }
+                    };
+                    img.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </body>
 </html>
