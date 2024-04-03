@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fnf-metro Admin</title>
+    <style>
+        /* Simple CSS for demonstration */
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h2>fnf-metro Admin Access</h2>
+    <label for="adminPassword">Admin Password:</label>
+    <input type="password" id="adminPassword" name="adminPassword">
+    <button id="addButton" class="hidden">Add</button>
+
+    <script>
+        // JavaScript for password verification and toggling the Add button
+        document.getElementById('adminPassword').addEventListener('input', function() {
+            const correctPassword = 'YourSecretCode'; // Replace YourSecretCode with your actual admin password
+            const addButton = document.getElementById('addButton');
+            if (this.value === correctPassword) {
+                addButton.classList.remove('hidden');
+            } else {
+                addButton.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
