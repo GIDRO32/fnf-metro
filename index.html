@@ -7,21 +7,6 @@
 </head>
 <body>
     <h1>Welcome to fnf-metro</h1>
-    <div id="adminSection" style="display: none;">
-        <h2>Admin Section</h2>
-        <button id="addModButton">Add Mod</button>
-        <!-- Any other admin functionalities here -->
-    </div>
-
-    <script>
-        // Check if the URL path contains 'password'
-        const isAdminPath = window.location.pathname.includes('password');
-        if (isAdminPath) {
-            // If yes, show the admin section
-            document.getElementById('adminSection').style.display = 'block';
-        }
-
-        // Implement functionality for the Add Mod button and any other admin controls as needed
-    </script>
+    <button onclick="window.location.href='addMod.html';">Add Mod</button>
 </body>
 </html>
