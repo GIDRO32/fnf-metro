@@ -47,7 +47,21 @@
         <label for="modUrl">Mod URL:</label>
         <input type="url" id="modUrl" name="modUrl">
 
-        <!-- Placeholder for more features and submit button -->
+        <script>
+    function generateModLink() {
+        const modName = document.getElementById('modName').value;
+        const modUrl = document.getElementById('modUrl').value;
+        // Example of generating a simple link (you could customize this based on your requirements)
+        const generatedLink = `https://yourmodsite.com/mods?name=${encodeURIComponent(modName)}&url=${encodeURIComponent(modUrl)}`;
+        
+        // Display the link - for demonstration, we're using an alert
+        alert(`Your generated mod link: ${generatedLink}`);
+        
+        // Here, you would also handle the logic to send this data to a server to be saved into 'list.txt'
+    }
+</script>
+<button onclick="generateModLink()">Submit Mod</button>
+
         </div>
         
         <div class="medal-section">
