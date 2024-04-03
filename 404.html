@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <meta charset="utf-8">
+    <script>
+        // Take the path and query from the original URL and redirect to index.html with this information as query parameters
+        var path = location.pathname;
+        location.replace("/fnf-metro/index.html?path=" + encodeURIComponent(path));
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
