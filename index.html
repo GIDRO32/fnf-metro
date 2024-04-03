@@ -3,55 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fnf-metro Admin</title>
-    <style>
-        .hidden { display: none; }
-    </style>
+    <title>fnf-metro</title>
 </head>
 <body>
-    <h2>fnf-metro Admin Access</h2>
-    <label for="passwordField">Password:</label>
-    <input type="password" id="passwordField" name="password">
-    <button id="createPasswordButton">Create Password</button>
-    <button id="addModButton" class="hidden">Add Mod</button>
-    <button id="resetPasswordButton" class="hidden">Reset Password</button>
+    <h1>Welcome to fnf-metro</h1>
+    <div id="adminSection" style="display: none;">
+        <h2>Admin Section</h2>
+        <button id="addModButton">Add Mod</button>
+        <!-- Any other admin functionalities here -->
+    </div>
 
     <script>
-        let adminPassword = localStorage.getItem('adminPassword');
-        const passwordField = document.getElementById('passwordField');
-        const createPasswordButton = document.getElementById('createPasswordButton');
-        const addModButton = document.getElementById('addModButton');
-        const resetPasswordButton = document.getElementById('resetPasswordButton');
-
-        function updateButtonsVisibility() {
-            if (passwordField.value === adminPassword) {
-                addModButton.classList.remove('hidden');
-                resetPasswordButton.classList.remove('hidden');
-                createPasswordButton.classList.add('hidden');
-            } else {
-                addModButton.classList.add('hidden');
-                resetPasswordButton.classList.add('hidden');
-                createPasswordButton.classList.remove('hidden');
-            }
+        // Check if the URL path contains 'password'
+        const isAdminPath = window.location.pathname.includes('password');
+        if (isAdminPath) {
+            // If yes, show the admin section
+            document.getElementById('adminSection').style.display = 'block';
         }
 
-        createPasswordButton.addEventListener('click', function() {
-            adminPassword = passwordField.value;
-            localStorage.setItem('adminPassword', adminPassword);
-            updateButtonsVisibility();
-        });
-
-        passwordField.addEventListener('input', updateButtonsVisibility);
-
-        resetPasswordButton.addEventListener('click', function() {
-            localStorage.removeItem('adminPassword');
-            adminPassword = '';
-            passwordField.value = '';
-            updateButtonsVisibility();
-        });
-
-        // Initialize button visibility based on current state
-        updateButtonsVisibility();
+        // Implement functionality for the Add Mod button and any other admin controls as needed
     </script>
 </body>
 </html>
