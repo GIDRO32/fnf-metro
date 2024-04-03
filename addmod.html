@@ -15,7 +15,7 @@
             width: 50%;
             padding: 10px;
         }
-        input, textarea {
+        input, select, textarea {
             width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -24,46 +24,58 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
+        .medal-section {
+            margin-bottom: 20px;
+        }
+        .checkbox-section {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Add a New Mod</h1>
-        <label for="modImage">Mod Image (16:9 aspect ratio required):</label>
-        <input type="file" id="modImage" name="modImage" accept="image/*" onchange="validateImageAspectRatio(this)">
+        <!-- Previous fields for image, name, and URL -->
 
-        <label for="modName">Mod Name:</label>
-        <input type="text" id="modName" name="modName">
+        <div class="medal-section">
+            <h2>Main Medals</h2>
+            <label for="musicMedal">Music Medal:</label>
+            <select id="musicMedal" name="musicMedal">
+                <option value="None">None</option>
+                <option value="Bronze">Bronze</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+                <option value="Prismatic">Prismatic</option>
+            </select>
 
-        <label for="modUrl">Mod URL:</label>
-        <input type="url" id="modUrl" name="modUrl">
+            <!-- Repeat for other Main Medals (Visuals, Mod Size, Special Effects, Dynamics, UI Design, Additional Mechanics) -->
 
-        <!-- Placeholder for more features and submit button -->
+        </div>
+
+        <div class="checkbox-section">
+            <h2>Additional Medals</h2>
+            <label>
+                <input type="checkbox" id="heartMelting" name="heartMelting">
+                Heart-melting Characters
+            </label><br>
+
+            <label>
+                <input type="checkbox" id="horror" name="horror">
+                Horror
+            </label><br>
+
+            <label>
+                <input type="checkbox" id="hardcore" name="hardcore">
+                Hardcore
+            </label><br>
+
+            <label>
+                <input type="checkbox" id="memeVibe" name="memeVibe">
+                Meme Vibe
+            </label><br>
+        </div>
+
+        <!-- Placeholder for the submit button -->
     </div>
-
-    <script>
-        function validateImageAspectRatio(input) {
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    const img = new Image();
-                    img.onload = function() {
-                        const aspectRatio = img.width / img.height;
-                        // Check if aspect ratio is close to 16:9 (allowing some margin for error)
-                        if (aspectRatio > 1.77 && aspectRatio < 1.79) {
-                            alert("Image aspect ratio is valid.");
-                        } else {
-                            alert("Image does not have a 16:9 aspect ratio.");
-                            input.value = ''; // Clear the input if aspect ratio is not valid
-                        }
-                    };
-                    img.src = e.target.result;
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
 </body>
 </html>
