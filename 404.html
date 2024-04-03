@@ -4,12 +4,30 @@
     <title>Redirecting...</title>
     <meta charset="utf-8">
     <script>
-        // Take the path and query from the original URL and redirect to index.html with this information as query parameters
+        // Simple redirection logic to handle the path
         var path = location.pathname;
-        location.replace("/fnf-metro/index.html?path=" + encodeURIComponent(path));
+        // Check if path equals something specific, e.g., '/password', to decide whether to redirect or not
+        if (path.includes('/password')) {
+            // Redirect to index.html with the path as a query parameter
+            location.replace("/fnf-metro/index.html?path=" + encodeURIComponent(path));
+        } else {
+            // If not '/password', you could choose to redirect elsewhere, or not at all
+            // For demonstration, we're not redirecting if the path is not '/password'
+        }
     </script>
 </head>
 <body>
-    <p>Redirecting...</p>
+    <!-- Always showing the Add mod button for demonstration -->
+    <h2>404 - Page Not Found</h2>
+    <p>The requested page was not found on this server.</p>
+    <button onclick="addMod()">Add mod</button>
+    <script>
+        function addMod() {
+            // Placeholder function for demonstration
+            alert('Adding mod...');
+            // Here, you would implement the actual logic for adding a mod,
+            // which could be anything from displaying a form to dynamically loading content.
+        }
+    </script>
 </body>
 </html>
