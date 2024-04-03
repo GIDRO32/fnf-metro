@@ -36,11 +36,72 @@
     <div class="container">
         <h1>Add a New Mod</h1>
         <!-- Previous fields for image, name, and URL -->
+        <div class="container">
+        <h1>Add a New Mod</h1>
+        <label for="modImage">Mod Image (16:9 aspect ratio required):</label>
+        <input type="file" id="modImage" name="modImage" accept="image/*" onchange="validateImageAspectRatio(this)">
 
+        <label for="modName">Mod Name:</label>
+        <input type="text" id="modName" name="modName">
+
+        <label for="modUrl">Mod URL:</label>
+        <input type="url" id="modUrl" name="modUrl">
+
+        <!-- Placeholder for more features and submit button -->
+        </div>
+        
         <div class="medal-section">
             <h2>Main Medals</h2>
             <label for="musicMedal">Music Medal:</label>
             <select id="musicMedal" name="musicMedal">
+                <option value="None">None</option>
+                <option value="Bronze">Bronze</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+                <option value="Prismatic">Prismatic</option>
+            </select>
+            <label for="visualsMedal">Visuals Medal:</label>
+            <select id="visualsMedal" name="visualsMedal">
+                <option value="None">None</option>
+                <option value="Bronze">Bronze</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+                <option value="Prismatic">Prismatic</option>
+            </select>
+            <label for="modsizeMedal">Mod Size Medal:</label>
+            <select id="modsizeMedal" name="modsizeMedal">
+                <option value="None">None</option>
+                <option value="Bronze">Bronze</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+                <option value="Prismatic">Prismatic</option>
+            </select>
+            <label for="VFXMedal">Special Effects Medal:</label>
+            <select id="VFXMedal" name="VFXMedal">
+                <option value="None">None</option>
+                <option value="Bronze">Bronze</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+                <option value="Prismatic">Prismatic</option>
+            </select>
+            <label for="dynamicsMedal">Dynamics Medal:</label>
+            <select id="dynamicsMedal" name="dynamicsMedal">
+                <option value="None">None</option>
+                <option value="Bronze">Bronze</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+                <option value="Prismatic">Prismatic</option>
+            </select>
+                        <label for="UIMedal">UI Design Medal:</label>
+            <select id="UIMedal" name="UIMedal">
+                <option value="None">None</option>
+                <option value="Bronze">Bronze</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+                <option value="Prismatic">Prismatic</option>
+            </select>
+                        <label for="mechanicsMedal">Additional Mechanics Medal:</label>
+            <select id="mechanicsMedal" name="mechanicsMedal">
                 <option value="None">None</option>
                 <option value="Bronze">Bronze</option>
                 <option value="Silver">Silver</option>
